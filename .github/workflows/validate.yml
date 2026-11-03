@@ -1,0 +1,25 @@
+name: validate index
+
+on:
+  push:
+    paths:
+      - index.json
+      - icons/**
+      - validate.mjs
+      - .github/workflows/validate.yml
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # 用 Pages 的真实地址解析相对图标，顺带校验 URL 形态
+      - name: Validate index.json
+        run: >-
+          node validate.mjs
+          --url "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/index.json"

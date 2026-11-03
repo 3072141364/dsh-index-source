@@ -1,0 +1,117 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Zane's DSH Index",
+    "zh": "我的 DSH 插件索引"
+  },
+  "description": {
+    "en": "Private plugin index for my own DeepSeek Harness setup.",
+    "zh": "给自己用的 DeepSeek Harness 插件索引。"
+  },
+  "metadata": {
+    "categories": {
+      "tools": { "title": { "en": "Tools & Capabilities", "zh": "工具与能力" } },
+      "vision": { "title": { "en": "Vision & Multimodal", "zh": "视觉与多模态" } },
+      "docs": { "title": { "en": "Docs & Rendering", "zh": "文档与渲染" } }
+    },
+    "labels": {
+      "verified": { "title": { "en": "Verified locally", "zh": "本机已验证" } }
+    },
+    "sortKeys": {
+      "priority": { "title": { "en": "My priority", "zh": "我的优先级" }, "order": "desc" }
+    }
+  },
+  "plugins": [
+    {
+      "name": "@liustack/modlens",
+      "title": {
+        "en": "modlens",
+        "zh": "modlens 视觉桥"
+      },
+      "description": {
+        "en": "Vision bridge for text-only models: paste an image, get structured JSON evidence (OCR, layout, semantics).",
+        "zh": "为纯文本模型架起视觉桥梁：粘贴图片，输出结构化 JSON 证据（OCR、版面、语义）。"
+      },
+      "icon": "./icons/example.svg",
+      "author": "liustack",
+      "homepage": "https://github.com/liustack/modlens#readme",
+      "repository": { "url": "https://github.com/liustack/modlens" },
+      "metadata": {
+        "category": "vision",
+        "keywords": ["vision", "ocr", "image", "multimodal"],
+        "labels": ["verified"],
+        "sortKeys": { "priority": 30 }
+      },
+      "versions": [
+        {
+          "version": "3.27.2",
+          "publishTimestamp": 1792770154,
+          "source": { "type": "npm" },
+          "engines": {}
+        }
+      ]
+    },
+    {
+      "name": "@tt-a1i/archify-dsh",
+      "title": {
+        "en": "archify-dsh",
+        "zh": "archify 架构图"
+      },
+      "description": {
+        "en": "Generate validated, self-contained interactive architecture, workflow, sequence, data-flow, and lifecycle diagrams.",
+        "zh": "从仓库或系统描述生成经过校验的自包含交互式架构图、流程图、时序图、数据流图和生命周期图。"
+      },
+      "author": "tt-a1i",
+      "homepage": "https://github.com/tt-a1i/archify/tree/main/integrations/deepseek-harness",
+      "repository": {
+        "url": "https://github.com/tt-a1i/archify",
+        "directory": "integrations/deepseek-harness"
+      },
+      "metadata": {
+        "category": "docs",
+        "keywords": ["diagram", "architecture", "mermaid", "svg"],
+        "labels": ["verified"],
+        "sortKeys": { "priority": 20 }
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1791133803,
+          "source": { "type": "npm" },
+          "engines": {}
+        }
+      ]
+    },
+    {
+      "name": "@wxg-prc-cpg/dsh-weknora",
+      "title": {
+        "en": "dsh-weknora",
+        "zh": "WeKnora 知识库工具"
+      },
+      "description": {
+        "en": "Four read-only tools over a WeKnora knowledge base: list bases, hybrid passage search, reassemble a document, and RAG/agent answers with citations.",
+        "zh": "把 WeKnora 知识库接入 dsh 的四个只读工具：列出知识库、混合检索原文片段、按顺序还原单篇文档，以及带引用的 RAG/agent 回答。"
+      },
+      "author": "Tencent",
+      "homepage": "https://github.com/Tencent/WeKnora/tree/main/packages/dsh-weknora",
+      "repository": {
+        "url": "https://github.com/Tencent/WeKnora",
+        "directory": "packages/dsh-weknora"
+      },
+      "metadata": {
+        "category": "tools",
+        "keywords": ["rag", "knowledge-base", "search", "weknora"],
+        "labels": ["verified"],
+        "sortKeys": { "priority": 10 }
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1787288542,
+          "source": { "type": "npm" },
+          "engines": {}
+        }
+      ]
+    }
+  ]
+}

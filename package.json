@@ -1,0 +1,21 @@
+{
+  "name": "dsh-index-source",
+  "version": "0.1.0",
+  "description": "A private DeepSeek Harness plugin market index (format 1)",
+  "license": "MIT",
+  "files": [
+    "index.json",
+    "icons"
+  ],
+  "exports": {
+    "./index.json": "./index.json"
+  },
+  "scripts": {
+    "validate": "node validate.mjs --url https://cdn.jsdelivr.net/npm/dsh-index-source/index.json",
+    "serve": "node serve.mjs",
+    "prepublishOnly": "node validate.mjs --url https://cdn.jsdelivr.net/npm/dsh-index-source/index.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
