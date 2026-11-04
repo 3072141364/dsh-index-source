@@ -6,6 +6,9 @@ on:
       - index.json
       - icons/**
       - validate.mjs
+      - semver.mjs
+      - sync.mjs
+      - .github/workflows/sync.yml
       - .github/workflows/validate.yml
   pull_request:
   workflow_dispatch:

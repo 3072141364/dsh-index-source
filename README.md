@@ -11,10 +11,13 @@ dsh-index-source/
 ├── index.json      # 索引本体（format 1）
 ├── icons/          # 相对图标放这里，按索引 URL 解析
 ├── validate.mjs    # 零依赖校验器（规则对齐官方 @deepseek-ai/dsh-plugin-market-index）
+├── semver.mjs      # 校验器与同步脚本共享的 SemVer 工具
+├── sync.mjs        # 从 npm registry 补新版本
 ├── serve.mjs       # 本地预览服务器
 ├── package.json    # 想走 npm + jsDelivr 托管时用
 ├── .nojekyll       # 关掉 Jekyll，避免下划线/点开头的文件被丢
 ├── .github/workflows/validate.yml  # push 时自动校验
+├── .github/workflows/sync.yml      # 每天自动补新版本
 └── README.md
 ```
 
@@ -167,7 +170,34 @@ https://cdn.jsdelivr.net/npm/<your-pkg>@<version>/index.json
 
 `package.json` 已配好 `files: ["index.json", "icons"]` 和 `prepublishOnly` 校验钩子，发布前会自动跑一遍校验。
 
-## 6. 几个容易踩的坑
+## 6. 版本自动同步（每天）
+
+**默认行为是手动的**：DSH 只看 `index.json` 里声明的 `versions`，不会自己去 npm 查有没有新版本。所以插件发新版后，你不改这里，发现页就不会出现新版本。
+
+本仓库配了 [`.github/workflows/sync.yml`](.github/workflows/sync.yml)，每天 UTC 21:00（北京时间 05:00）跑一次：
+
+1. `node sync.mjs` 逐个查已声明的 npm 包；
+2. **只向前补**——只加比当前已声明最高版本更新的版本，不会把历史旧版本回填；
+3. 默认只补最新稳定版；预发布跳过；
+4. `engines.dsh` 直接取包元数据里的 `engines.dsh`，判断不了就留空；
+5. 有变化就 `chore: sync plugin versions` 提交并 push，Pages 自动重建。
+
+手动跑：
+
+```bash
+node sync.mjs --dry-run          # 先看会改什么
+node sync.mjs                    # 补最新稳定版
+node sync.mjs --all --keep 5     # 补全部更新的版本，但每个插件只留最新 5 个
+```
+
+几点边界：
+
+- **git 源不会自动同步**——需要人工把 commit 更新到新 SHA（这是故意的，自动跟分支不安全）。
+- **单个包读取失败只告警**（撤包、私有包访问不到），全部失败才让任务变红；想严格一点用 `--strict`。
+- **索引更新 ≠ 已装插件升级**：DSH 目前没有「升级」动作，发现页只会显示「有新版本」，实际升级仍是卸载再安装。
+- 链路延迟：push → Pages 约 30–60 秒 → CDN 与 DSH 各 10 分钟缓存。急着看就把源地址临时加 `?v=2`。
+
+## 7. 几个容易踩的坑
 
 - **索引 URL 规则**：必须 http/https，不能带凭据或 `#`；可以带 query。**重定向会被拒绝**，请直接填最终地址。
 - **Pages 的缓存**：GitHub Pages 给静态文件发 `cache-control: max-age=600`，叠上 DSH 自己的 10 分钟缓存，改完最多可能要等 10 分钟才看到。急着验证时把源地址临时写成 `.../index.json?v=2`（query 合法，且换 URL 就换了缓存键）。

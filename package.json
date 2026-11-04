@@ -13,6 +13,8 @@
   "scripts": {
     "validate": "node validate.mjs --url https://cdn.jsdelivr.net/npm/dsh-index-source/index.json",
     "serve": "node serve.mjs",
+    "sync": "node sync.mjs",
+    "sync:check": "node sync.mjs --dry-run",
     "prepublishOnly": "node validate.mjs --url https://cdn.jsdelivr.net/npm/dsh-index-source/index.json"
   },
   "publishConfig": {
