@@ -10,15 +10,41 @@
   },
   "metadata": {
     "categories": {
-      "tools": { "title": { "en": "Tools & Capabilities", "zh": "工具与能力" } },
-      "vision": { "title": { "en": "Vision & Multimodal", "zh": "视觉与多模态" } },
-      "docs": { "title": { "en": "Docs & Rendering", "zh": "文档与渲染" } }
+      "tools": {
+        "title": {
+          "en": "Tools & Capabilities",
+          "zh": "工具与能力"
+        }
+      },
+      "vision": {
+        "title": {
+          "en": "Vision & Multimodal",
+          "zh": "视觉与多模态"
+        }
+      },
+      "docs": {
+        "title": {
+          "en": "Docs & Rendering",
+          "zh": "文档与渲染"
+        }
+      }
     },
     "labels": {
-      "verified": { "title": { "en": "Verified locally", "zh": "本机已验证" } }
+      "verified": {
+        "title": {
+          "en": "Verified locally",
+          "zh": "本机已验证"
+        }
+      }
     },
     "sortKeys": {
-      "priority": { "title": { "en": "My priority", "zh": "我的优先级" }, "order": "desc" }
+      "priority": {
+        "title": {
+          "en": "My priority",
+          "zh": "我的优先级"
+        },
+        "order": "desc"
+      }
     }
   },
   "plugins": [
@@ -35,18 +61,39 @@
       "icon": "./icons/example.svg",
       "author": "liustack",
       "homepage": "https://github.com/liustack/modlens#readme",
-      "repository": { "url": "https://github.com/liustack/modlens" },
+      "repository": {
+        "url": "https://github.com/liustack/modlens"
+      },
       "metadata": {
         "category": "vision",
-        "keywords": ["vision", "ocr", "image", "multimodal"],
-        "labels": ["verified"],
-        "sortKeys": { "priority": 30 }
+        "keywords": [
+          "vision",
+          "ocr",
+          "image",
+          "multimodal"
+        ],
+        "labels": [
+          "verified"
+        ],
+        "sortKeys": {
+          "priority": 30
+        }
       },
       "versions": [
         {
+          "version": "3.27.3",
+          "publishTimestamp": 1794069402,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {}
+        },
+        {
           "version": "3.27.2",
           "publishTimestamp": 1792770154,
-          "source": { "type": "npm" },
+          "source": {
+            "type": "npm"
+          },
           "engines": {}
         }
       ]
@@ -69,15 +116,26 @@
       },
       "metadata": {
         "category": "docs",
-        "keywords": ["diagram", "architecture", "mermaid", "svg"],
-        "labels": ["verified"],
-        "sortKeys": { "priority": 20 }
+        "keywords": [
+          "diagram",
+          "architecture",
+          "mermaid",
+          "svg"
+        ],
+        "labels": [
+          "verified"
+        ],
+        "sortKeys": {
+          "priority": 20
+        }
       },
       "versions": [
         {
           "version": "1.0.0",
           "publishTimestamp": 1791133803,
-          "source": { "type": "npm" },
+          "source": {
+            "type": "npm"
+          },
           "engines": {}
         }
       ]
@@ -100,15 +158,26 @@
       },
       "metadata": {
         "category": "tools",
-        "keywords": ["rag", "knowledge-base", "search", "weknora"],
-        "labels": ["verified"],
-        "sortKeys": { "priority": 10 }
+        "keywords": [
+          "rag",
+          "knowledge-base",
+          "search",
+          "weknora"
+        ],
+        "labels": [
+          "verified"
+        ],
+        "sortKeys": {
+          "priority": 10
+        }
       },
       "versions": [
         {
           "version": "0.1.0",
           "publishTimestamp": 1787288542,
-          "source": { "type": "npm" },
+          "source": {
+            "type": "npm"
+          },
           "engines": {}
         }
       ]
