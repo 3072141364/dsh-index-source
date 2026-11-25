@@ -81,6 +81,14 @@
       },
       "versions": [
         {
+          "version": "3.27.6",
+          "publishTimestamp": 1795548207,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {}
+        },
+        {
           "version": "3.27.5",
           "publishTimestamp": 1794753617,
           "source": {
